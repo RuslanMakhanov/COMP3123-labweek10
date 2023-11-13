@@ -20,14 +20,16 @@ export default function LoginFunction() {
     }
 
     const onSubmitForm = (event) => {
+        
         event.preventDefault()
         console.log("Form Submitted : " +  JSON.stringify(formData))
+        
     }
 
   return (
     <>
         <h2>Data Entry Form</h2>
-        <form onSubmit={(e) => onSubmitForm(e)} > 
+        <form class="form" onSubmit={(e) => onSubmitForm(e)} > 
         <h3>Email</h3>
             <input 
                 name='email'
@@ -74,11 +76,32 @@ export default function LoginFunction() {
                 name='postalcode'
                 type="text"                
                 onChange={(e) => onValueChanged(e)}/>
+                <br></br>
+
+                <input 
+                name='agree'
+                type="radio"
+                value="agree"
+                onChange={(e) => onValueChanged(e)} /> Agree Terms & Condition?<br></br>
             
             <input 
                 name='btnSubmit'
                 type="submit"
                 value="Login" />
+        </form>
+        <br></br>
+        <form class="form" > 
+        {(<p ><a class="green">Emai:</a>{JSON.stringify(formData.email)}</p>)}
+        <hr class="green"></hr>
+        {(<p ><a class="green">Full Name:</a>{JSON.stringify(formData.name)}</p>)}
+        <hr class="green"></hr>
+        {(<p ><a class="green">Address:</a>{JSON.stringify(formData.address)}</p>)}
+        <hr class="green"></hr>
+        {(<p ><a class="green">City:</a>{JSON.stringify(formData.city)}</p>)}
+        <hr class="green"></hr>
+        {(<p ><a class="green">province:</a>{JSON.stringify(formData.province)}</p>)}
+        <hr class="green"></hr>
+        {(<p ><a class="green">Postal Code:</a>{JSON.stringify(formData.postalcode)}</p>)}
         </form>
     </>
   )
